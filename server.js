@@ -1,9 +1,10 @@
-var http = require('http');
+var http = require('http'),
+    sys = require('sys');
 
 var port = parseInt(process.env['PORT']);
 
 http.createServer(function (req, res) {
-  console.log("request...");
+  console.log("request..." + sys.inspect(req));
   res.writeHead(200, {'Content-Type': 'text/plain'});
   res.write('Packet one\n');
   res.end('Hello World\n');
